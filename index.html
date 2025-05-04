@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html>
+  <head>
+    <title>じゃんけんゲーム</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>じゃんけんゲーム</h1>
+    <p>コイン: <span id="coin">20</span>まい</p>
+    <button id="startButton">スタート</button>
+    <p id="jankenText"></p>
+    <div id="janken" style="display: none">
+      <button id="rock">グー</button>
+      <button id="scissors">チョキ</button>
+      <button id="paper">パー</button>
+    </div>
+
+    <p id="result"></p>
+
+    <canvas id="rouletteCanvas" width="300" height="300"></canvas>
+    <p id="rouletteResult"></p>
+
+    <audio id="jankenVoice" src="voice/kei_2020_じゃんけん、ぽん！.wav"></audio>
+    <audio id="winVoice" src="voice/kei_2020_いえーい！.wav"></audio>
+    <audio id="drawVoice" src="voice/kei_2020_あいこで、しょ！.wav"></audio>
+    <audio id="coinSe" src="se/コイン系＿コイン.wav"></audio>
+    <audio
+      id="bgm"
+      src="bgm/BGM225-201031-jigokunoroulette-wav.wav"
+      loop
+    ></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
