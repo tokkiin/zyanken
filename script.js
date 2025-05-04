@@ -22,12 +22,14 @@ let stoppedIndex = null; // ルーレット停止後のインデックスを保�
 function drawRoulette(currentAngle) {
   rouletteCtx.clearRect(0, 0, rouletteCanvas.width, rouletteCanvas.height);
   const anglePerSlice = (Math.PI * 2) / rouletteValues.length;
-
+  const centerX = 75; // 半分のサイズに変更
+  const centerY = 75;
+  const radius = 60; // 円の半径を半分にする
   for (let i = 0; i < rouletteValues.length; i++) {
     const startAngle = anglePerSlice * i;
     const endAngle = anglePerSlice * (i + 1);
-    const x = Math.cos(startAngle + anglePerSlice / 2) * 120 + 150;
-    const y = Math.sin(startAngle + anglePerSlice / 2) * 120 + 150;
+    const x = Math.cos(startAngle + anglePerSlice / 2) * radius + centerX;
+    const y = Math.sin(startAngle + anglePerSlice / 2) * radius + centerY;
 
     // **回転中も黄色を適用するよう修正**
     const isSelected =
@@ -36,8 +38,8 @@ function drawRoulette(currentAngle) {
         Math.floor((currentAngle % (Math.PI * 2)) / anglePerSlice) === i);
 
     rouletteCtx.beginPath();
-    rouletteCtx.arc(150, 150, 120, startAngle, endAngle);
-    rouletteCtx.lineTo(150, 150);
+    rouletteCtx.arc(centerX, centerY, radius, startAngle, endAngle);
+    rouletteCtx.lineTo(centerX, centerY);
     rouletteCtx.fillStyle = isSelected ? "#ff0" : i % 2 === 0 ? "#eee" : "#fff";
     rouletteCtx.fill();
     rouletteCtx.closePath();
@@ -134,14 +136,8 @@ function spinRoulette() {
       resultElement.textContent =
         "コインを " + selectedValue + "まいゲット！（スタートをおしてね！）";
 
-      // **コインが増える枚数だけ coinSe を鳴らす**
-      function playCoinSound(times) {
-        if (times > 0) {
-          coinSe.play().catch((error) => console.warn("再生エラー:", error));
-        }
-      }
-
-      playCoinSound(selectedValue);
+      // **coinSe を鳴らす**
+      coinSe.play().catch((error) => console.warn("再生エラー:", error));
 
       // **停止後に黄色を適用して再描画**
       drawRoulette(currentAngle);

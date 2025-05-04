@@ -23,11 +23,9 @@ body {
   margin-bottom: 20px;
 }
 #startButton {
-  font-size: 24px; /* 文字サイズを少し大きめに */
-  padding: 15px 30px; /* ボタンの余白（縦・横）を調整 */
-  width: 200px; /* ボタンの幅を設定 */
-  height: 60px; /* ボタンの高さを設定 */
-
+  font-size: 20px; /* 文字サイズを少し大きめに */
+  padding: 10px 20px; /* ボタンの余白（縦・横）を調整 */
+  margin: 0 10px;
   border: none; /* ボーダーを消す */
   border-radius: 10px; /* 角を少し丸く */
   cursor: pointer; /* マウスを当てたらポインター表示 */
