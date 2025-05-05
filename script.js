@@ -142,7 +142,7 @@ function spinRoulette() {
       // **停止後に黄色を適用して再描画**
       drawRoulette(currentAngle);
 
-      if (coin >= 1000) {
+      if (coin >= 100) {
         resultElement.textContent = "ゲームクリア！";
         rockButton.disabled = true;
         scissorsButton.disabled = true;
